@@ -32,3 +32,27 @@ tsconfig:
 
 eslint:
 	yarn eslint --init
+
+build:
+	yarn build
+
+test:
+	yarn test
+
+lint: 
+	yarn lint
+
+api-extractor-init:
+	yarn api-extractor init
+
+run-api-local:
+	yarn api-extractor run --local
+
+run-api:
+	yarn api-extractor run
+
+api-documenter:
+	yarn api-documenter markdown -i temp -o docs
+
+produce:
+	sh generate.sh

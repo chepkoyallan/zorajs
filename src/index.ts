@@ -1,1 +1,5 @@
-let courier = "allan"
+export function hello(name:any) {
+    console.log(name)
+}
+
+hello("allan")

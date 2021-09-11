@@ -2,182 +2,182 @@
 
 'use strict';
 var grpc = require('grpc');
-var protos_kafka_pb = require('../protos/kafka_pb.js');
+var kafka_pb = require('./kafka_pb.js');
 
 function serialize_AckRq(arg) {
-  if (!(arg instanceof protos_kafka_pb.AckRq)) {
+  if (!(arg instanceof kafka_pb.AckRq)) {
     throw new Error('Expected argument of type AckRq');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_AckRq(buffer_arg) {
-  return protos_kafka_pb.AckRq.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.AckRq.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_AckRs(arg) {
-  if (!(arg instanceof protos_kafka_pb.AckRs)) {
+  if (!(arg instanceof kafka_pb.AckRs)) {
     throw new Error('Expected argument of type AckRs');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_AckRs(buffer_arg) {
-  return protos_kafka_pb.AckRs.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.AckRs.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_ConsNAckRq(arg) {
-  if (!(arg instanceof protos_kafka_pb.ConsNAckRq)) {
+  if (!(arg instanceof kafka_pb.ConsNAckRq)) {
     throw new Error('Expected argument of type ConsNAckRq');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_ConsNAckRq(buffer_arg) {
-  return protos_kafka_pb.ConsNAckRq.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.ConsNAckRq.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_ConsRs(arg) {
-  if (!(arg instanceof protos_kafka_pb.ConsRs)) {
+  if (!(arg instanceof kafka_pb.ConsRs)) {
     throw new Error('Expected argument of type ConsRs');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_ConsRs(buffer_arg) {
-  return protos_kafka_pb.ConsRs.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.ConsRs.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_GetOffsetsRq(arg) {
-  if (!(arg instanceof protos_kafka_pb.GetOffsetsRq)) {
+  if (!(arg instanceof kafka_pb.GetOffsetsRq)) {
     throw new Error('Expected argument of type GetOffsetsRq');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_GetOffsetsRq(buffer_arg) {
-  return protos_kafka_pb.GetOffsetsRq.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.GetOffsetsRq.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_GetOffsetsRs(arg) {
-  if (!(arg instanceof protos_kafka_pb.GetOffsetsRs)) {
+  if (!(arg instanceof kafka_pb.GetOffsetsRs)) {
     throw new Error('Expected argument of type GetOffsetsRs');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_GetOffsetsRs(buffer_arg) {
-  return protos_kafka_pb.GetOffsetsRs.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.GetOffsetsRs.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_GetTopicMetadataRq(arg) {
-  if (!(arg instanceof protos_kafka_pb.GetTopicMetadataRq)) {
+  if (!(arg instanceof kafka_pb.GetTopicMetadataRq)) {
     throw new Error('Expected argument of type GetTopicMetadataRq');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_GetTopicMetadataRq(buffer_arg) {
-  return protos_kafka_pb.GetTopicMetadataRq.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.GetTopicMetadataRq.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_GetTopicMetadataRs(arg) {
-  if (!(arg instanceof protos_kafka_pb.GetTopicMetadataRs)) {
+  if (!(arg instanceof kafka_pb.GetTopicMetadataRs)) {
     throw new Error('Expected argument of type GetTopicMetadataRs');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_GetTopicMetadataRs(buffer_arg) {
-  return protos_kafka_pb.GetTopicMetadataRs.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.GetTopicMetadataRs.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_ListConsumersRq(arg) {
-  if (!(arg instanceof protos_kafka_pb.ListConsumersRq)) {
+  if (!(arg instanceof kafka_pb.ListConsumersRq)) {
     throw new Error('Expected argument of type ListConsumersRq');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_ListConsumersRq(buffer_arg) {
-  return protos_kafka_pb.ListConsumersRq.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.ListConsumersRq.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_ListConsumersRs(arg) {
-  if (!(arg instanceof protos_kafka_pb.ListConsumersRs)) {
+  if (!(arg instanceof kafka_pb.ListConsumersRs)) {
     throw new Error('Expected argument of type ListConsumersRs');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_ListConsumersRs(buffer_arg) {
-  return protos_kafka_pb.ListConsumersRs.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.ListConsumersRs.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_ListTopicRq(arg) {
-  if (!(arg instanceof protos_kafka_pb.ListTopicRq)) {
+  if (!(arg instanceof kafka_pb.ListTopicRq)) {
     throw new Error('Expected argument of type ListTopicRq');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_ListTopicRq(buffer_arg) {
-  return protos_kafka_pb.ListTopicRq.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.ListTopicRq.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_ListTopicRs(arg) {
-  if (!(arg instanceof protos_kafka_pb.ListTopicRs)) {
+  if (!(arg instanceof kafka_pb.ListTopicRs)) {
     throw new Error('Expected argument of type ListTopicRs');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_ListTopicRs(buffer_arg) {
-  return protos_kafka_pb.ListTopicRs.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.ListTopicRs.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_ProdRq(arg) {
-  if (!(arg instanceof protos_kafka_pb.ProdRq)) {
+  if (!(arg instanceof kafka_pb.ProdRq)) {
     throw new Error('Expected argument of type ProdRq');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_ProdRq(buffer_arg) {
-  return protos_kafka_pb.ProdRq.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.ProdRq.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_ProdRs(arg) {
-  if (!(arg instanceof protos_kafka_pb.ProdRs)) {
+  if (!(arg instanceof kafka_pb.ProdRs)) {
     throw new Error('Expected argument of type ProdRs');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_ProdRs(buffer_arg) {
-  return protos_kafka_pb.ProdRs.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.ProdRs.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_SetOffsetsRq(arg) {
-  if (!(arg instanceof protos_kafka_pb.SetOffsetsRq)) {
+  if (!(arg instanceof kafka_pb.SetOffsetsRq)) {
     throw new Error('Expected argument of type SetOffsetsRq');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_SetOffsetsRq(buffer_arg) {
-  return protos_kafka_pb.SetOffsetsRq.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.SetOffsetsRq.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_SetOffsetsRs(arg) {
-  if (!(arg instanceof protos_kafka_pb.SetOffsetsRs)) {
+  if (!(arg instanceof kafka_pb.SetOffsetsRs)) {
     throw new Error('Expected argument of type SetOffsetsRs');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_SetOffsetsRs(buffer_arg) {
-  return protos_kafka_pb.SetOffsetsRs.deserializeBinary(new Uint8Array(buffer_arg));
+  return kafka_pb.SetOffsetsRs.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
@@ -209,8 +209,8 @@ produce: {
     path: '/KafkaPixy/Produce',
     requestStream: false,
     responseStream: false,
-    requestType: protos_kafka_pb.ProdRq,
-    responseType: protos_kafka_pb.ProdRs,
+    requestType: kafka_pb.ProdRq,
+    responseType: kafka_pb.ProdRs,
     requestSerialize: serialize_ProdRq,
     requestDeserialize: deserialize_ProdRq,
     responseSerialize: serialize_ProdRs,
@@ -254,8 +254,8 @@ consumeNAck: {
     path: '/KafkaPixy/ConsumeNAck',
     requestStream: false,
     responseStream: false,
-    requestType: protos_kafka_pb.ConsNAckRq,
-    responseType: protos_kafka_pb.ConsRs,
+    requestType: kafka_pb.ConsNAckRq,
+    responseType: kafka_pb.ConsRs,
     requestSerialize: serialize_ConsNAckRq,
     requestDeserialize: deserialize_ConsNAckRq,
     responseSerialize: serialize_ConsRs,
@@ -274,8 +274,8 @@ ack: {
     path: '/KafkaPixy/Ack',
     requestStream: false,
     responseStream: false,
-    requestType: protos_kafka_pb.AckRq,
-    responseType: protos_kafka_pb.AckRs,
+    requestType: kafka_pb.AckRq,
+    responseType: kafka_pb.AckRs,
     requestSerialize: serialize_AckRq,
     requestDeserialize: deserialize_AckRq,
     responseSerialize: serialize_AckRs,
@@ -291,8 +291,8 @@ getOffsets: {
     path: '/KafkaPixy/GetOffsets',
     requestStream: false,
     responseStream: false,
-    requestType: protos_kafka_pb.GetOffsetsRq,
-    responseType: protos_kafka_pb.GetOffsetsRs,
+    requestType: kafka_pb.GetOffsetsRq,
+    responseType: kafka_pb.GetOffsetsRs,
     requestSerialize: serialize_GetOffsetsRq,
     requestDeserialize: deserialize_GetOffsetsRq,
     responseSerialize: serialize_GetOffsetsRs,
@@ -310,8 +310,8 @@ setOffsets: {
     path: '/KafkaPixy/SetOffsets',
     requestStream: false,
     responseStream: false,
-    requestType: protos_kafka_pb.SetOffsetsRq,
-    responseType: protos_kafka_pb.SetOffsetsRs,
+    requestType: kafka_pb.SetOffsetsRq,
+    responseType: kafka_pb.SetOffsetsRs,
     requestSerialize: serialize_SetOffsetsRq,
     requestDeserialize: deserialize_SetOffsetsRq,
     responseSerialize: serialize_SetOffsetsRs,
@@ -326,8 +326,8 @@ listTopics: {
     path: '/KafkaPixy/ListTopics',
     requestStream: false,
     responseStream: false,
-    requestType: protos_kafka_pb.ListTopicRq,
-    responseType: protos_kafka_pb.ListTopicRs,
+    requestType: kafka_pb.ListTopicRq,
+    responseType: kafka_pb.ListTopicRs,
     requestSerialize: serialize_ListTopicRq,
     requestDeserialize: deserialize_ListTopicRq,
     responseSerialize: serialize_ListTopicRs,
@@ -342,8 +342,8 @@ listConsumers: {
     path: '/KafkaPixy/ListConsumers',
     requestStream: false,
     responseStream: false,
-    requestType: protos_kafka_pb.ListConsumersRq,
-    responseType: protos_kafka_pb.ListConsumersRs,
+    requestType: kafka_pb.ListConsumersRq,
+    responseType: kafka_pb.ListConsumersRs,
     requestSerialize: serialize_ListConsumersRq,
     requestDeserialize: deserialize_ListConsumersRq,
     responseSerialize: serialize_ListConsumersRs,
@@ -359,8 +359,8 @@ getTopicMetadata: {
     path: '/KafkaPixy/GetTopicMetadata',
     requestStream: false,
     responseStream: false,
-    requestType: protos_kafka_pb.GetTopicMetadataRq,
-    responseType: protos_kafka_pb.GetTopicMetadataRs,
+    requestType: kafka_pb.GetTopicMetadataRq,
+    responseType: kafka_pb.GetTopicMetadataRs,
     requestSerialize: serialize_GetTopicMetadataRq,
     requestDeserialize: deserialize_GetTopicMetadataRq,
     responseSerialize: serialize_GetTopicMetadataRs,

@@ -1,4 +1,4 @@
-// source: protos/kafka.proto
+// source: kafka.proto
 /**
  * @fileoverview
  * @enhanceable
