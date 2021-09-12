@@ -1,6 +1,5 @@
 import {
   Category,
-  CategoryLogger,
   CategoryServiceFactory,
   CategoryConfiguration,
   LogLevel,

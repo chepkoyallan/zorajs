@@ -6,8 +6,16 @@ import {
 import { KafkaPixyClient } from './protos/kafka_grpc_pb';
 import { ProdRq } from './protos/kafka_pb';
 import { credentials } from '@grpc/grpc-js';
-import { produceService} from './logConfig';
+import { produceService } from './logConfig';
 
+/**
+ * Producer writes a message to a kafka topic
+ * The request will block until the message is written to all ISR.
+ * Therefore the respose will contain the partition and offset of the message.
+ * This is used to achive at-least-once deliverability guarantee.
+ * 
+ * @beta
+ */
 export class Producer implements ProduceMessages {
   address: string;
   topic: string;
@@ -15,6 +23,11 @@ export class Producer implements ProduceMessages {
   message: any;
   insecure: any;
 
+  /**
+   * Creates an instance of producer.
+   * @param produceRequest -Produce request
+   * @beta
+   */
   constructor(produceRequest: ProduceRequest<string, any>) {
     this.insecure = credentials.createInsecure();
     this.topic = produceRequest.topic;
@@ -23,6 +36,12 @@ export class Producer implements ProduceMessages {
     this.address = produceRequest.address;
   }
 
+  /**
+   * Produces producer
+   * @returns produce
+   * 
+   * @beta
+   */
   produce(): ProduceResponse | any {
     const client = new KafkaPixyClient(this.address, this.insecure);
     const produceRequest = new ProdRq();
@@ -39,8 +58,10 @@ export class Producer implements ProduceMessages {
             `Message written to ${this.topic} kafka topic: Partition ${partition} Offset ${offset}`,
         );
       } else {
-        // console.log(error);
-        produceService.error(`There was a problem while writing to Kafka: ${error}`, error);
+        produceService.error(
+          `There was a problem while writing to Kafka: ${error}`,
+          error,
+        );
       }
     });
   }

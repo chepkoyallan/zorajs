@@ -4,9 +4,9 @@
 
 ## zoraclient package
 
-## Functions
+## Classes
 
-|  Function | Description |
+|  Class | Description |
 |  --- | --- |
-|  [hello(name)](./zoraclient.hello.md) |  |
+|  [Producer](./zoraclient.producer.md) | <b><i>(BETA)</i></b> Producer writes a message to a kafka topic The request will block until the message is written to all ISR. Therefore the respose will contain the partition and offset of the message. This is used to achive at-least-once deliverability guarantee. |
 
