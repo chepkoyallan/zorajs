@@ -4,8 +4,25 @@
 
 ```ts
 
-// @public (undocumented)
-export function hello(name: any): void;
+// Warning: (ae-forgotten-export) The symbol "ProduceMessages" needs to be exported by the entry point index.d.ts
+//
+// @beta
+export class Producer implements ProduceMessages {
+    // Warning: (ae-forgotten-export) The symbol "ProduceRequest" needs to be exported by the entry point index.d.ts
+    constructor(produceRequest: ProduceRequest<string, any>);
+    // (undocumented)
+    address: string;
+    // (undocumented)
+    insecure: any;
+    // (undocumented)
+    keyValue: string;
+    // (undocumented)
+    message: any;
+    // Warning: (ae-forgotten-export) The symbol "ProduceResponse" needs to be exported by the entry point index.d.ts
+    produce(): ProduceResponse | any;
+    // (undocumented)
+    topic: string;
+}
 
 // (No @packageDocumentation comment for this package)
 
