@@ -13,6 +13,8 @@ export interface ProduceRequest<KeyValue, KeyUnidentified> {
   message: any;
   asyncMode?: boolean;
   headers?: [RecordHeader];
+  sessionName: string;
+  sessionValue: string;
 }
 
 /**

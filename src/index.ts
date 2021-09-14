@@ -5,15 +5,16 @@ import {
 } from './topic_interface';
 import { KafkaPixyClient } from './protos/kafka_grpc_pb';
 import { ProdRq } from './protos/kafka_pb';
-import { credentials } from '@grpc/grpc-js';
+import { credentials, Metadata } from '@grpc/grpc-js';
 import { produceService } from './logConfig';
+import { metaCallback } from './metaData';
 
 /**
  * Producer writes a message to a kafka topic
  * The request will block until the message is written to all ISR.
  * Therefore the respose will contain the partition and offset of the message.
  * This is used to achive at-least-once deliverability guarantee.
- * 
+ *
  * @beta
  */
 export class Producer implements ProduceMessages {
@@ -22,6 +23,10 @@ export class Producer implements ProduceMessages {
   keyValue: string;
   message: any;
   insecure: any;
+  client: KafkaPixyClient;
+  sessionName: string;
+  sessionValue: string;
+  combCreds: any;
 
   /**
    * Creates an instance of producer.
@@ -34,22 +39,45 @@ export class Producer implements ProduceMessages {
     this.keyValue = produceRequest.keyValue;
     this.message = produceRequest.message;
     this.address = produceRequest.address;
+    this.sessionName = produceRequest.sessionName;
+    this.sessionValue = produceRequest.sessionValue;
+    this.client = new KafkaPixyClient(
+      produceRequest.address,
+      this.combCreds,
+    );
   }
 
   /**
    * Produces producer
    * @returns produce
-   * 
+   *
    * @beta
    */
   produce(): ProduceResponse | any {
-    const client = new KafkaPixyClient(this.address, this.insecure);
     const produceRequest = new ProdRq();
+
+    const metaCallback = (
+      _params: any,
+      callback: (arg0: null, arg1: Metadata) => any,
+    ) => {
+      const meta = new Metadata();
+      meta.add(this.sessionName, this.sessionValue);
+      callback(null, meta);
+    };
+
+    const callCreds =
+      credentials.createFromMetadataGenerator(metaCallback);
+
+    this.combCreds = credentials.combineChannelCredentials(
+      this.insecure,
+      callCreds,
+    );
+
     produceRequest.setTopic(this.topic);
     produceRequest.setKeyValue(this.keyValue);
     produceRequest.setMessage(this.message);
 
-    client.produce(produceRequest, (error, response) => {
+    this.client.produce(produceRequest, (error, response) => {
       if (!error) {
         const partition: number = response.getPartition();
         const offset: number = response.getOffset();
