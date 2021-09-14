@@ -7,7 +7,6 @@ import { KafkaPixyClient } from './protos/kafka_grpc_pb';
 import { ProdRq } from './protos/kafka_pb';
 import { credentials, Metadata } from '@grpc/grpc-js';
 import { produceService } from './logConfig';
-import { metaCallback } from './metaData';
 
 /**
  * Producer writes a message to a kafka topic
